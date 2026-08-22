@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Chaves y Rivera Constructores</title>
+
+  <!-- Swiper JS CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- FontAwesome Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --gold: #c5a059;
+      --gold-light: #f3e5ab;
+      --gold-dark: #9e7d3b;
+      --white: #ffffff;
+      --dark: #121212;
+      --text-muted: #7e8794;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: #f8f9fa;
+      color: #222;
+      padding-bottom: 75px;
+      overflow-x: hidden;
+    }
+
+    /* --- ENCABEZADO MEJORADO Y CON MÁS VIDA --- */
+    header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      z-index: 1000;
+      padding: 12px 16px;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Logo con aro dorado y sombra */
+    .logo-badge {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffffff, #fdfbf7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 6px 16px rgba(197, 160, 89, 0.35);
+      border: 2px solid var(--gold);
+      position: relative;
+    }
+
+    .logo-badge img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+
+    /* Texto del Logo */
+    .logo-text h1 {
+      font-size: 1.15rem;
+      font-weight: 900;
+      line-height: 1.1;
+      background: linear-gradient(90deg, #1a1a1a 0%, #c5a059 50%, #1a1a1a 100%);
+      background-size: 200% auto;
+      color: #1a1a1a;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 4s linear infinite;
+    }
+
+    @keyframes shine {
+      to { background-position: 200% center; }
+    }
+
+    .logo-text h5 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--gold-dark);
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-top: 1px;
+    }
+
+    .logo-text .sub {
+      display: inline-block;
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #555;
+      background: rgba(197, 160, 89, 0.12);
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-top: 3px;
+      border-left: 2px solid var(--gold);
+    }
+
+    /* Botón de llamada rápida en el Header */
+    .header-call-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(197, 160, 89, 0.4);
+      font-size: 0.95rem;
+      transition: transform 0.2s;
+    }
+
+    .header-call-btn:active {
+      transform: scale(0.9);
+    }
+
+    /* --- SECCIONES --- */
+    section {
+      padding: 18px 10px 10px;
+      scroll-margin-top: 80px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    .section-title h2 {
+      font-size: 1.2rem;
+      color: var(--dark);
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .section-title div {
+      width: 42px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-light), var(--gold-dark));
+      margin: 4px auto 0;
+      border-radius: 3px;
+    }
+
+    #inicio {
+      text-align: center;
+    }
+
+    #inicio h2 {
+      font-size: 1.3rem;
+      color: var(--dark);
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+
+    /* --- CARRUSEL CON IMAGEN COMPLETA Y GLASSMORPHISM --- */
+    .swiper-container-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .swiper {
+      width: 100%;
+      padding-top: 10px !important;
+      padding-bottom: 42px !important;
+    }
+
+    .swiper-slide {
+      position: relative;
+      width: 275px;
+      height: 370px;
+      background: #111111;
+      border-radius: 20px;
+      border: 1px solid rgba(197, 160, 89, 0.4);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+      overflow: hidden;
+    }
+
+    /* Contenedor de la Imagen Completa */
+    .slide-img-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0d0d0d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* Insignia sobre la imagen */
+    .slide-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: var(--gold-light);
+      font-size: 0.6rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(197, 160, 89, 0.5);
+      text-transform: uppercase;
+      z-index: 2;
+    }
+
+    /* Flechas de navegación */
+    .swiper-button-next,
+    .swiper-button-prev {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 50%;
+      border: 1px solid rgba(197, 160, 89, 0.35);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      z-index: 10;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-dark);
+      font-size: 0.85rem;
+      transition: all 0.25s ease;
+    }
+
+    .swiper-button-next:active,
+    .swiper-button-prev:active {
+      transform: translateY(-50%) scale(0.90);
+      background: rgba(197, 160, 89, 0.15);
+    }
+
+    .swiper-button-next { right: 6px; }
+    .swiper-button-prev { left: 6px; }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after { display: none; }
+
+    /* Paginación Dorada */
+    .swiper-pagination-bullet {
+      background: #888 !important;
+      opacity: 0.5;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: linear-gradient(135deg, var(--gold-light), var(--gold-dark)) !important;
+      opacity: 1;
+      width: 18px;
+      border-radius: 5px;
+    }
+
+    /* --- CONTACTO Y BOTÓN WHATSAPP ANIMADO --- */
+    .contact-card {
+      background: #fff;
+      padding: 22px 18px;
+      border-radius: 18px;
+      border-top: 4px solid var(--gold);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+
+    .contact-card h3 {
+      font-size: 1.1rem;
+      color: #1a1a1a;
+      margin-bottom: 4px;
+    }
+
+    .contact-card p {
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+    .btn-whatsapp {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+      padding: 14px 22px;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.92rem;
+      border-radius: 30px;
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+      70% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    .btn-whatsapp i {
+      font-size: 1.2rem;
+    }
+
+    /* NAVEGACIÓN INFERIOR */
+    nav.bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 -3px 15px rgba(0,0,0,0.08);
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0 12px;
+      z-index: 1000;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    nav.bottom-nav a {
+      text-decoration: none;
+      color: #888;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 0.65rem;
+      font-weight: 600;
+      gap: 3px;
+      transition: color 0.2s;
+    }
+
+    nav.bottom-nav a i {
+      font-size: 1.05rem;
+    }
+
+    nav.bottom-nav a.active {
+      color: var(--gold-dark);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ENCABEZADO MEJORADO -->
+  <header>
+    <div class="header-content">
+      <div class="header-left">
+        <div class="logo-badge">
+          <img src="remov.png" alt="Chaves y Rivera">
+        </div>
+        <div class="logo-text">
+          <h1>Chaves & Rivera</h1>
+          <h5>Construcciones</h5>
+          <span class="sub"><i class="fas fa-check-circle" style="color:var(--gold);"></i> Diseño, calidad y cumplimiento</span>
+        </div>
+      </div>
+      <a href="tel:573134945426" class="header-call-btn" title="Llamar ahora">
+        <i class="fas fa-phone-alt"></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- SECCIÓN INICIO -->
+  <section id="inicio">
+    <h2>Construimos Sus Sueños</h2>
+
+    <!-- Carrusel 3D Destacados -->
+    <div class="swiper-container-wrapper">
+      <div class="swiper mySwiper3D swiperDestacados">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="slide-img-container">
+              <span class="slide-tag">diseños y planos</span>
+              <img src="planos/plano1.jpg" alt="planos">
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide-img-container">
+              <span class="slide-tag">Diseño y planos</span>
+              <img src="planos/plano2.jpg" alt="Planos">
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide-img-container">
+              <span class="slide-tag">Diseño y planos</span>
+              <img src="planos/plano4.jpg" alt="Planos">
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide-img-container">
+              <span class="slide-tag">Diseño y planos</span>
+              <img src="planos/plano5.jpg" alt="Planos">
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide-img-container">
+              <span class="slide-tag">Diseño y planos</span>
+              <img src="planos/plano6.jpg" alt="Planos">
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide-img-container">
+              <span class="slide-tag">diseños y planos</span>
+              <img src="planos/plano3.jpg" alt="planos">
+            </div>
+          </div>
+        </div>
+        <!-- Flechas de navegación -->
+        <div class="swiper-button-prev"><i class="fas fa-chevron-left"></i></div>
+        <div class="swiper-button-next"><i class="fas fa-chevron-right"></i></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN SERVICIOS -->
+  <section id="servicios">
+    <div class="section-title">
+      <h2>Servicios</h2>
+      <div></div>
+    </div>
+
+    <!-- Carrusel 3D Servicios -->
+    <div class="swiper-container-wrapper">
+      <div class="swiper mySwiper3D swiperServicios">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="slide-img-container">
+              <span class="slide-tag">pintura</span>
+              <img src="1.jpg" alt="pintura">
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide-img-container">
+              <span class="slide-tag">plomeria</span>
+              <img src="2.jpg" alt="plomeria">
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide-img-container">
+              <span class="slide-tag">remodelacion</span>
+              <img src="3.jpg" alt="remodelacion">
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide-img-container">
+              <span class="slide-tag">electricidad</span>
+              <img src="4.jpg" alt="electricidad">
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide-img-container">
+              <span class="slide-tag">mantenimiento</span>
+              <img src="5.jpg" alt="mantenimiento">
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide-img-container">
+              <span class="slide-tag">mamposteria</span>
+              <img src="6.jpg" alt="mamposteria">
+            </div>
+          </div>
+
+        </div>
+        <!-- Flechas de navegación -->
+        <div class="swiper-button-prev"><i class="fas fa-chevron-left"></i></div>
+        <div class="swiper-button-next"><i class="fas fa-chevron-right"></i></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN CONTACTO -->
+  <section id="contacto">
+    <div class="contact-card">
+      <h3>¿Tienes un proyecto en mente?</h3>
+      <p>Cotiza directamente por WhatsApp sin compromiso.</p>
+      
+      <!-- Enlace con mensaje personalizado de WhatsApp -->
+      <a href="https://wa.me/573134945426?text=Hola%20Jose%20Ignacio,%20vi%20su%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20con%20Chaves%20%26%20Rivera%20Constructores." class="btn-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i> Contactar a Jose Ignacio
+      </a>
+    </div>
+  </section>
+
+  <!-- NAVEGACIÓN INFERIOR -->
+  <nav class="bottom-nav">
+    <a href="#inicio" class="nav-item active"><i class="fas fa-home"></i>Inicio</a>
+    <a href="#servicios" class="nav-item"><i class="fas fa-tools"></i>Servicios</a>
+    <a href="#contacto" class="nav-item"><i class="fas fa-envelope"></i>Contacto</a>
+  </nav>
+
+  <!-- Swiper JS Script -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    // Configuración Swiper DESTACADOS
+    var swiperDestacados = new Swiper(".swiperDestacados", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      coverflowEffect: {
+        rotate: 15,
+        stretch: 0,
+        depth: 90,
+        modifier: 1.2,
+        slideShadows: false,
+      },
+      autoplay: {
+        delay: 30000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: ".swiperDestacados .swiper-button-next",
+        prevEl: ".swiperDestacados .swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiperDestacados .swiper-pagination",
+        clickable: true,
+        dynamicBullets: true,
+      },
+      loop: true,
+    });
+
+    // Configuración Swiper SERVICIOS
+    var swiperServicios = new Swiper(".swiperServicios", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      coverflowEffect: {
+        rotate: 15,
+        stretch: 0,
+        depth: 90,
+        modifier: 1.2,
+        slideShadows: false,
+      },
+      autoplay: {
+        delay: 30000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: ".swiperServicios .swiper-button-next",
+        prevEl: ".swiperServicios .swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiperServicios .swiper-pagination",
+        clickable: true,
+        dynamicBullets: true,
+      },
+      loop: true,
+    });
+
+    // Resaltado de navegación al hacer Scroll
+    const sections = document.querySelectorAll("section");
+    const navItems = document.querySelectorAll(".bottom-nav a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - 120) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navItems.forEach((item) => {
+        item.classList.remove("active");
+        if (item.getAttribute("href") === `#${current}`) {
+          item.classList.add("active");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
