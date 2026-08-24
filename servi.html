@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Chaves y Rivera Constructores - Servicios Profesionales</title>
+
+  <!-- Swiper JS CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- FontAwesome Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --gold: #c5a059;
+      --gold-light: #f3e5ab;
+      --gold-dark: #9e7d3b;
+      --white: #ffffff;
+      --dark: #121212;
+      --card-bg: #1a1a1a;
+      --text-muted: #a0a6b1;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: #f4f6f9;
+      color: #222;
+      padding-bottom: 80px;
+      overflow-x: hidden;
+    }
+
+    /* ENCABEZADO */
+    header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      z-index: 1000;
+      padding: 12px 16px;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-badge {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffffff, #fdfbf7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 6px 16px rgba(197, 160, 89, 0.35);
+      border: 2px solid var(--gold);
+      position: relative;
+    }
+
+    .logo-badge img {
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
+    }
+
+    .logo-text h1 {
+      font-size: 1.15rem;
+      font-weight: 900;
+      line-height: 1.1;
+      background: linear-gradient(90deg, #1a1a1a 0%, #c5a059 50%, #1a1a1a 100%);
+      background-size: 200% auto;
+      color: #1a1a1a;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 4s linear infinite;
+    }
+
+    @keyframes shine {
+      to { background-position: 200% center; }
+    }
+
+    .logo-text h5 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--gold-dark);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 1px;
+    }
+
+    .logo-text .sub {
+      display: inline-block;
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #444;
+      background: rgba(197, 160, 89, 0.15);
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-top: 3px;
+      border-left: 2px solid var(--gold);
+    }
+
+    .header-call-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(197, 160, 89, 0.4);
+      font-size: 1rem;
+      transition: transform 0.2s;
+    }
+
+    .header-call-btn:active {
+      transform: scale(0.9);
+    }
+
+    /* SECCIONES GENERALES */
+    section {
+      padding: 22px 12px 10px;
+      scroll-margin-top: 80px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .section-title h2 {
+      font-size: 1.25rem;
+      color: var(--dark);
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+    }
+
+    .section-title p {
+      font-size: 0.82rem;
+      color: #666;
+      margin-top: 4px;
+    }
+
+    .section-title div.line {
+      width: 45px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-light), var(--gold-dark));
+      margin: 6px auto 0;
+      border-radius: 3px;
+    }
+
+    #inicio {
+      text-align: center;
+    }
+
+    /* CARRUSEL SWIPER */
+    .swiper-container-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .swiper {
+      width: 100%;
+      padding-top: 10px !important;
+      padding-bottom: 45px !important;
+    }
+
+    .swiper-slide {
+      position: relative;
+      width: 290px;
+      height: 480px;
+      background: #111111;
+      border-radius: 20px;
+      border: 1px solid rgba(197, 160, 89, 0.4);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide-img-container {
+      position: relative;
+      width: 100%;
+      height: 60%;
+      background-color: #0d0d0d;
+      overflow: hidden;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .slide-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: var(--gold-light);
+      font-size: 0.62rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(197, 160, 89, 0.5);
+      text-transform: uppercase;
+      z-index: 2;
+    }
+
+    /* DESCRIPCIÓN EXPLICATIVA DE CADA SERVICIO */
+    .slide-content {
+      height: 40%;
+      padding: 14px;
+      background: linear-gradient(180deg, #1a1a1a 0%, #111111 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #fff;
+      text-align: left;
+    }
+
+    .slide-content h3 {
+      font-size: 1.05rem;
+      color: var(--gold-light);
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .slide-content p {
+      font-size: 0.75rem;
+      color: #ccc;
+      line-height: 1.4;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+    }
+
+    .slide-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .slide-badge {
+      font-size: 0.65rem;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .btn-card-quote {
+      font-size: 0.68rem;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    /* FLECHAS DE NAVEGACIÓN */
+    .swiper-button-next,
+    .swiper-button-prev {
+      position: absolute;
+      top: 45%;
+      transform: translateY(-50%);
+      width: 38px;
+      height: 38px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 50%;
+      border: 1px solid rgba(197, 160, 89, 0.4);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      z-index: 10;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-dark);
+      font-size: 0.9rem;
+      transition: all 0.25s ease;
+    }
+
+    .swiper-button-next:active,
+    .swiper-button-prev:active {
+      transform: translateY(-50%) scale(0.9);
+      background: rgba(197, 160, 89, 0.2);
+    }
+
+    .swiper-button-next { right: 2px; }
+    .swiper-button-prev { left: 2px; }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after { display: none; }
+
+    .swiper-pagination-bullet {
+      background: #888 !important;
+      opacity: 0.5;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: linear-gradient(135deg, var(--gold-light), var(--gold-dark)) !important;
+      opacity: 1;
+      width: 20px;
+      border-radius: 5px;
+    }
+
+    /* SECCIÓN DE DETALLES EXPLICATIVOS */
+    .service-detail-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 16px;
+      border-left: 4px solid var(--gold);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    }
+
+    .service-detail-card h4 {
+      font-size: 0.95rem;
+      color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .service-detail-card h4 i {
+      color: var(--gold-dark);
+    }
+
+    .service-detail-card p {
+      font-size: 0.78rem;
+      color: #555;
+      line-height: 1.45;
+    }
+
+    /* CONTACTO Y WHATSAPP */
+    .contact-card {
+      background: #fff;
+      padding: 24px 18px;
+      border-radius: 20px;
+      border-top: 4px solid var(--gold);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+
+    .contact-card h3 {
+      font-size: 1.15rem;
+      color: #1a1a1a;
+      margin-bottom: 6px;
+    }
+
+    .contact-card p {
+      font-size: 0.82rem;
+      color: #666;
+    }
+
+    .btn-whatsapp {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 16px;
+      padding: 14px 22px;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.92rem;
+      border-radius: 30px;
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+      70% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    .btn-whatsapp i {
+      font-size: 1.25rem;
+    }
+
+    /* NAVEGACIÓN INFERIOR */
+    nav.bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 -3px 15px rgba(0,0,0,0.08);
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0 12px;
+      z-index: 1000;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    nav.bottom-nav a {
+      text-decoration: none;
+      color: #888;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 0.65rem;
+      font-weight: 600;
+      gap: 3px;
+      transition: color 0.2s;
+    }
+
+    nav.bottom-nav a i {
+      font-size: 1.05rem;
+    }
+
+    nav.bottom-nav a.active {
+      color: var(--gold-dark);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ENCABEZADO -->
+  <header>
+    <div class="header-content">
+      <div class="header-left">
+        <div class="logo-badge">
+          <img src="remov.png" alt="Chaves y Rivera Constructores">
+        </div>
+        <div class="logo-text">
+          <h1>Chaves & Rivera</h1>
+          <h5>Constructores</h5>
+          <span class="sub"><i class="fas fa-check-circle" style="color:var(--gold);"></i> Servicio Especializado</span>
+        </div>
+      </div>
+      <a href="tel:573134945426" class="header-call-btn" title="Llamar ahora">
+        <i class="fas fa-phone-alt"></i>
+      </a>
+    </div>
+  </header>
+
+
+
+  <!-- SECCIÓN SERVICIOS -->
+  <section id="servicios">
+    <div class="section-title">
+      <h2>Nuestros Servicios</h2>
+      <p>Personal altamente capacitado y uniforme institucional certificado</p>
+      <div class="line"></div>
+    </div>
+
+    <!-- Carrusel 3D Servicios -->
+    <div class="swiper-container-wrapper">
+      <div class="swiper mySwiper3D swiperServicios">
+        <div class="swiper-wrapper">
+
+          <!-- SERVICIO 1: PINTURA -->
+          <div class="swiper-slide">
+            <div class="slide-img-container">
+              <span class="slide-tag">Fachadas e Interiores</span>
+              <img src="pintura.jpg" alt="Técnico aplicando pintura profesional en fachada">
+            </div>
+            <div class="slide-content">
+              <h3><i class="fas fa-paint-roller"></i> Pintura Profesional</h3>
+              <p>Aplicación especializada de pintura elastomérica y vinílica para interiores y fachadas. Preparación de superficies, sellado de grietas e impermeabilización superficial.</p>
+              <div class="slide-footer">
+                <span class="slide-badge">Alta Durabilidad</span>
+                <a href="#contacto" class="btn-card-quote">Solicitar</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- SERVICIO 2: PLOMERÍA -->
+          <div class="swiper-slide">
+            <div class="slide-img-container">
+              <span class="slide-tag">Hidráulica y Sanitaria</span>
+              <img src="plomero.jpg" alt="Instalación de tuberías y plomería profesional">
+            </div>
+            <div class="slide-content">
+              <h3><i class="fas fa-wrench"></i> Plomería e Hidráulica</h3>
+              <p>Instalación, mantenimiento y reparación de redes hidráulicas y sanitarias en cobre, PVC y CPVC. Detección de fugas y montaje de griferías de alta gama.</p>
+              <div class="slide-footer">
+                <span class="slide-badge">Cero Fugas</span>
+                <a href="#contacto" class="btn-card-quote">Solicitar</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- SERVICIO 3: REMODELACIÓN -->
+          <div class="swiper-slide">
+            <div class="slide-img-container">
+              <span class="slide-tag">Acabados De Lujo</span>
+              <img src="remo.jpg" alt="Especialista realizando remodelación de alta gama">
+            </div>
+            <div class="slide-content">
+              <h3><i class="fas fa-hammer"></i> Remodelación Elegante</h3>
+              <p>Transformación integral de espacios con acabados de lujo, instalación de pisos de madera, mármol, paneles de cielo raso y detalles arquitectónicos exclusivos.</p>
+              <div class="slide-footer">
+                <span class="slide-badge">Diseño Premium</span>
+                <a href="#contacto" class="btn-card-quote">Solicitar</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- SERVICIO 4: IMPERMEABILIZACIÓN -->
+          <div class="swiper-slide">
+            <div class="slide-img-container">
+              <span class="slide-tag">Techos y Terrazas</span>
+              <img src="iper.jpg" alt="Aplicación de manto técnico impermeabilizante en techos">
+            </div>
+            <div class="slide-content">
+              <h3><i class="fas fa-shield-alt"></i> Impermeabilización</h3>
+              <p>Protección avanzada contra filtraciones y humedad en techos, cubiertas y terrazas. Aplicación de membranas líquidas, mantos asfálticos y sistemas acrílicos.</p>
+              <div class="slide-footer">
+                <span class="slide-badge">Garantía Antipinchazo</span>
+                <a href="#contacto" class="btn-card-quote">Solicitar</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- SERVICIO 5: ELECTRICIDAD -->
+          <div class="swiper-slide">
+            <div class="slide-img-container">
+              <span class="slide-tag">Redes Eléctricas</span>
+              <img src="electrica.jpg" alt="Instalación de tablero de distribución eléctrica">
+            </div>
+            <div class="slide-content">
+              <h3><i class="fas fa-bolt"></i> Instalaciones Eléctricas</h3>
+              <p>Montaje de tableros de distribución, cableado estructurado, redes de iluminación LED, acometidas principales y cumplimiento estricto del código eléctrico RETIE.</p>
+              <div class="slide-footer">
+                <span class="slide-badge">Seguridad Garantizada</span>
+                <a href="#contacto" class="btn-card-quote">Solicitar</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- SERVICIO 6: MAMPOSTERÍA -->
+          <div class="swiper-slide">
+            <div class="slide-img-container">
+              <span class="slide-tag">Obra Gris y Muros</span>
+              <img src="manpo.jpg" alt="Oficial instalando muro de ladrillo en mampostería">
+            </div>
+            <div class="slide-content">
+              <h3><i class="fas fa-cubes"></i> Mampostería y Obra Gris</h3>
+              <p>Construcción de muros estructurales y divisorios en ladrillo y bloque, pañetes, vaciado de placas, vigas y adecuación estructural de edificaciones.</p>
+              <div class="slide-footer">
+                <span class="slide-badge">Resistencia Estructural</span>
+                <a href="#contacto" class="btn-card-quote">Solicitar</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- SERVICIO 7: MANTENIMIENTO -->
+          <div class="swiper-slide">
+            <div class="slide-img-container">
+              <span class="slide-tag">Mantenimiento General</span>
+              <img src="mant.jpg" alt="Mantenimiento preventivo en instalaciones y energía solar">
+            </div>
+            <div class="slide-content">
+              <h3><i class="fas fa-tools"></i> Mantenimiento Integral</h3>
+              <p>Servicio correctivo y preventivo para edificaciones, conjuntos residenciales y locales comerciales. Mantenimiento de techos, paneles, redes y estructuras.</p>
+              <div class="slide-footer">
+                <span class="slide-badge">Atención Rápida</span>
+                <a href="#contacto" class="btn-card-quote">Solicitar</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="swiper-button-prev"><i class="fas fa-chevron-left"></i></div>
+        <div class="swiper-button-next"><i class="fas fa-chevron-right"></i></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <!-- TARJETAS RESUMEN DE GARANTÍA -->
+    <div style="margin-top: 20px;">
+      <div class="service-detail-card">
+        <h4><i class="fas fa-user-shield"></i> tecnologo en construccion acreditado</h4>
+        <p>Chaves & Rivera Constructores para garantizar confianza y profesionalismo en cada visita.</p>
+      </div>
+
+      <div class="service-detail-card">
+        <h4><i class="fas fa-certificate"></i> Garantía y Cumplimiento</h4>
+        <p>Trabajamos bajo contratos claros que especifican tiempos de entrega, lista de materiales de primera calidad y garantía escrita sobre el trabajo realizado.</p>
+      </div>
+    </div>
+  </section>
+
+
+    <!-- SECCIÓN INICIO -->
+  <section id="inicio">
+    <div class="section-title">
+      <h2>nos encargamos de lo que necesitas</h2>
+      <p></p>
+      <div class="line"></div>
+    </div>
+
+    <!-- Carrusel 3D Destacados -->
+    <div class="swiper-container-wrapper">
+      <div class="swiper mySwiper3D swiperDestacados">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <div class="slide-img-container">
+              <span class="slide-tag">Arquitectura</span>
+              <img src="planos/plano1.jpg" alt="Diseño de Planos Arquitectónicos">
+            </div>
+            <div class="slide-content">
+              <h3><i class="fas fa-drafting-compass"></i> Diseño y Planos</h3>
+              <p>Elaboración de planos estructurales, arquitectónicos y renders 3D para proyectos residenciales y comerciales con normativa técnica vigente.</p>
+              <div class="slide-footer">
+                <span class="slide-badge">Diseño a Medida</span>
+                <a href="#contacto" class="btn-card-quote">Cotizar</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide-img-container">
+              <span class="slide-tag">Estructuras</span>
+              <img src="planos/plano2.jpg" alt="Ingeniería y Cálculo Estructural">
+            </div>
+            <div class="slide-content">
+              <h3><i class="fas fa-ruler-combined"></i> Ingeniería Estructural</h3>
+              <p>Cálculo y diseño de estructuras seguras, garantizando la estabilidad y durabilidad de cada obra con materiales certificados.</p>
+              <div class="slide-footer">
+                <span class="slide-badge">Garantía Técnica</span>
+                <a href="#contacto" class="btn-card-quote">Cotizar</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide-img-container">
+              <span class="slide-tag">planos</span>
+              <img src="planos/plano4.jpg" alt="planos">
+            </div>
+            <div class="slide-content">
+              <h3><i class="fas fa-file-contract"></i> planos y  diseños</h3>
+              <p>nos encargamos de darle probecho a cada metro cuadrado</p>
+              <div class="slide-footer">
+               
+                <a href="contacto.html" class="btn-card-quote">Cotizar</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="slide-img-container">
+              <span class="slide-tag">Interiores</span>
+              <img src="planos/plano5.jpg" alt="Diseño de Interiores">
+            </div>
+            <div class="slide-content">
+              <h3><i class="fas fa-couch"></i> Diseño de Interiores</h3>
+              <p>Distribución eficiente de espacios, selección de acabados de lujo y optimización de iluminación para ambientes elegantes.</p>
+              <div class="slide-footer">
+                <span class="slide-badge">Acabados Top</span>
+                <a href="#contacto" class="btn-card-quote">Cotizar</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="swiper-button-prev"><i class="fas fa-chevron-left"></i></div>
+        <div class="swiper-button-next"><i class="fas fa-chevron-right"></i></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN CONTACTO -->
+  <section id="contacto">
+    <div class="contact-card">
+      <h3>¿Necesitas una Cotización de Servicios?</h3>
+      <p>Cuéntanos sobre tu proyecto o necesidad de mantenimiento e instalación. Te responderemos de inmediato.</p>
+
+      <a href="https://wa.me/573134945426?text=Hola%20Jose%20Ignacio,%20necesito%20cotizar%20servicios%20de%20construcci%C3%B3n,%20pintura%20o%20mantenimiento%20con%20Chaves%20%26%20Rivera." class="btn-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i> Contactar a Jose Ignacio
+      </a>
+    </div>
+  </section>
+
+  <!-- NAVEGACIÓN INFERIOR -->
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-item active"><i class="fas fa-home"></i>Inicio</a>
+    <a href="#servicios" class="nav-item"><i class="fas fa-tools"></i>Servicios</a>
+    <a href="contacto.html" class="nav-item"><i class="fas fa-envelope"></i>Contacto</a>
+  </nav>
+
+  <!-- Swiper JS Script -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    var swiperDestacados = new Swiper(".swiperDestacados", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      coverflowEffect: {
+        rotate: 15,
+        stretch: 0,
+        depth: 90,
+        modifier: 1.2,
+        slideShadows: false,
+      },
+      autoplay: {
+        delay: 30000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: ".swiperDestacados .swiper-button-next",
+        prevEl: ".swiperDestacados .swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiperDestacados .swiper-pagination",
+        clickable: true,
+        dynamicBullets: true,
+      },
+      loop: true,
+    });
+
+    var swiperServicios = new Swiper(".swiperServicios", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      coverflowEffect: {
+        rotate: 15,
+        stretch: 0,
+        depth: 90,
+        modifier: 1.2,
+        slideShadows: false,
+      },
+      autoplay: {
+        delay: 30000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: ".swiperServicios .swiper-button-next",
+        prevEl: ".swiperServicios .swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiperServicios .swiper-pagination",
+        clickable: true,
+        dynamicBullets: true,
+      },
+      loop: true,
+    });
+
+    const sections = document.querySelectorAll("section");
+    const navItems = document.querySelectorAll(".bottom-nav a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 120) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navItems.forEach((item) => {
+        item.classList.remove("active");
+        if (item.getAttribute("href") === `#${current}`) {
+          item.classList.add("active");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
