@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicio Suspendido - Incumplimiento de Pago</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen flex items-center justify-center p-4">
+
+    <!-- Contenedor principal con efecto de alerta dramática -->
+    <div class="max-w-2xl w-full bg-slate-900/80 backdrop-blur-xl border border-rose-500/30 rounded-2xl shadow-2xl shadow-rose-950/50 p-8 md:p-12 text-center relative overflow-hidden">
+        
+        <!-- Franja superior de advertencia -->
+        <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-rose-600 via-red-500 to-amber-500"></div>
+
+        <!-- Icono de advertencia animado -->
+        <div class="inline-flex items-center justify-center w-20 h-20 bg-rose-500/10 border border-rose-500/20 rounded-full mb-6 animate-pulse-slow text-rose-500">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+            </svg>
+        </div>
+
+        <!-- TÍTULO GRANDE E IMPRESIONANTE -->
+        <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white mb-4 leading-none uppercase">
+            Servicio <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-red-600">Suspendido</span>
+        </h1>
+
+        <p class="text-lg md:text-xl font-semibold text-rose-400/90 mb-6 tracking-wide">
+            PLATAFORMA BLOQUEADA POR FALTA DE PAGO
+        </p>
+
+        <!-- Descripción formal -->
+        <p class="text-slate-400 text-sm md:text-base leading-relaxed mb-8 max-w-lg mx-auto">
+            El acceso a este sistema se encuentra temporalmente interrumpido debido a que el periodo de facturación ha vencido sin registrar el pago correspondiente. Para restablecer el servicio de forma inmediata, por favor efectúe el pago pendiente.
+        </p>
+
+        <!-- Caja de detalles o llamada a la acción -->
+        <div class="bg-slate-950/60 border border-slate-800 rounded-xl p-5 mb-8 text-left max-w-md mx-auto space-y-2">
+            <div class="flex justify-between text-sm">
+                <span class="text-slate-400">Estado:</span>
+                <span class="text-rose-400 font-semibold">Inactivo / Suspendido</span>
+            </div>
+            <div class="flex justify-between text-sm">
+                <span class="text-slate-400">Motivo:</span>
+                <span class="text-slate-200 font-medium">no se realizo pago</span>
+            </div>
+            <div class="flex justify-between text-sm">
+                <span class="text-slate-400">Soporte técnico:</span>
+                <span class="text-indigo-400 font-medium">malapaga.com</span>
+            </div>
+        </div>
+
+        <!-- Botón de contacto / pago -->
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="mailto:administracion@tudominio.com?subject=Comprobante%20de%20Pago%20-%20Servicio%20Suspendido" class="bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white font-bold px-8 py-3.5 rounded-xl transition shadow-lg shadow-rose-900/40 text-sm uppercase tracking-wider">
+                ponerse al dia
+            </a>
+        </div>
+
+        <!-- Pie de página de la alerta -->
+        <p class="text-xs text-slate-600 mt-8">
+            Una vez validado el pago, el sistema se reactivará automáticamente en un lapso no mayor a 2 horas.
+        </p>
+    </div>
+
+</body>
+</html>
